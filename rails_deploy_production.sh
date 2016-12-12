@@ -5,4 +5,6 @@ bundle exec rake db:migrate:reset RAILS_ENV=production
 DOT_FILE=".env"
 
 echo "RAILS_SERVE_STATIC_FILES=true" >> ${DOT_FILE}
-echo "SECRET_KEY_BASE=${bundle exec rake secret}" >> ${DOT_FILE}
+
+SECRET_KEY=`bundle exec rake secret`
+echo "SECRET_KEY_BASE=$SECRET_KEY" >> ${DOT_FILE}
